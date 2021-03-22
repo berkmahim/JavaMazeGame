@@ -17,10 +17,10 @@ public class Board extends JPanel implements ActionListener
 	
 	private Map m;
 	
-	//private Player player;
+	private Player player;
 	public Board() {
 		m = new Map();
-	//	player = new Player(); 
+		player = new Player(); 
 		timer=new Timer(25,this);
 		timer.start();
 		setFocusable(true);
@@ -51,7 +51,7 @@ public class Board extends JPanel implements ActionListener
 			}
 			
 		}
-		/*g.drawImage(player.getPlayer(),player.getX(),player.getY(),null);*/
+		g.drawImage(player.getPlayer(),player.getX(),player.getY(),null);
 		
 	}
 	
@@ -64,7 +64,7 @@ public class Board extends JPanel implements ActionListener
 	}
   
 	
-	/*public class Al extends KeyAdapter{
+	public class Al extends KeyAdapter{
 		
 	public void keyPressed(KeyEvent e) {
 		
@@ -96,7 +96,7 @@ public class Board extends JPanel implements ActionListener
 	public void keyTyped(KeyEvent e) {
 	
 }
-	}*/
+	}
 	
 	
 }
