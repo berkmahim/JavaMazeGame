@@ -17,7 +17,7 @@ public class Main
 		JFrame f=new JFrame();
 		f.setTitle("SMURF GAME");
 		f.add(new Board());
-		f.setSize(435,400);
+		f.setSize(500,400);
 		f.setLocationRelativeTo(null);
 		f.setVisible(true);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

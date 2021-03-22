@@ -30,8 +30,8 @@ public class Map
 	
 	public Map() 
 	{
-	  grass=new ImageIcon("C:\\Users\\berkm\\eclipse-workspace\\Smurfs\\Images\\grass.png").getImage();
-	  wall=new ImageIcon("C:\\Users\\berkm\\eclipse-workspace\\Smurfs\\Images\\wall.png").getImage();
+	  grass=new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\src\\MazeGame\\Images\\grass.png").getImage();
+	  wall=new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\src\\MazeGame\\Images\\wall.png").getImage();
 	  
   
 	readFile();
@@ -64,7 +64,7 @@ public class Map
 	{
 		try
         {
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\berkm\\eclipse-workspace\\Smurfs\\src\\MazeGame\\Map.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\berkm\\git\\repository\\Smurfs\\src\\MazeGame\\Map.txt"));
             int i=0;
 
             int x=0,y=0;
