@@ -1,28 +1,24 @@
+
+
 package MazeGame;
 
+import java.awt.Component;
 import javax.swing.JFrame;
 
-public class Main 
-{
+public class Main {
+    public static void main(String[] args) {
+        new Main();
+    }
 
-	public static void main(String[] args) 
-	{
-         new Main();
-		
-	}
-	public Main() 
-	{
-		
-		
-		JFrame f=new JFrame();
-		f.setTitle("SMURF GAME");
-		f.add(new Board());
-		f.setSize(500,400);
-		f.setLocationRelativeTo(null);
-		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-	}
-
+    public Main() {
+        JFrame f = new JFrame();
+        f.setTitle("SMURF GAME");
+        f.add(new Board());
+        f.setSize(500, 400);
+        f.setLocationRelativeTo((Component)null);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(3);
+   
+        
+    }
 }

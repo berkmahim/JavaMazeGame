@@ -1,155 +1,101 @@
+
 package MazeGame;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.List;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
-
 import javax.swing.ImageIcon;
 
-public class Map 
-{
+public class Map {
+    private Scanner m;
+    private int[][] Map = new int[11][13];
+    private Image grass;
+    private Image wall;
 
-	private Scanner m;
-	private int Map[][]=new int[11][13];
+    public Map() {
+        this.grass = (new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\Images\\grass.png")).getImage();
+        this.wall = (new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\Images\\wall.png")).getImage();
+        this.readFile();
+    }
 
-	private Image grass;
-	/*
-	ArrayList<Azman> azman = new ArrayList<Azman>();
-	ArrayList<Gargamel> gargamel = new ArrayList<Gargamel>();
-	*/
-	private Image wall;
-	
-	
-	public Map() 
-	{
-	  grass=new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\src\\MazeGame\\Images\\grass.png").getImage();
-	  wall=new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\src\\MazeGame\\Images\\wall.png").getImage();
-	  
-  
-	readFile();
-	
-		
-}
-	public Image getGrass() 
-	{
-		return grass;
-	}
-	
-	public Image getWall() 
-	{
-		return wall;
-	}
-	
-	
-	public int getMap(int x, int y) 
-	{
-		int index=Map[x][y];
-		//System.out.print(index);
-		return index;
-		
-	}
-	
-	
-		
-	
-	public void readFile() 
-	{
-		try
-        {
+    public Image getGrass() {
+        return this.grass;
+    }
+
+    public Image getWall() {
+        return this.wall;
+    }
+
+    public int getMap(int x, int y) {
+        int index = this.Map[x][y];
+        return index;
+    }
+
+    public void readFile() {
+        try {
             BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\berkm\\git\\repository\\Smurfs\\src\\MazeGame\\Map.txt"));
-            int i=0;
+            int i = 0;
+            boolean x = false;
+            boolean var4 = false;
 
-            int x=0,y=0;
+            while(true) {
+                String line;
+                while((line = br.readLine()) != null) {
+                    String[] integerStrings;
+                    if (line.startsWith("K")) {
+                        integerStrings = line.split(":");
+                        if (integerStrings.length >= 3) {
+                            if (integerStrings[2].startsWith("A")) {
+                                x = false;
+                                var4 = true;
+                            } else if (integerStrings[2].startsWith("B")) {
+                                x = true;
+                                var4 = false;
+                            } else if (integerStrings[2].startsWith("C")) {
+                                x = true;
+                                var4 = false;
+                            } else if (integerStrings[2].startsWith("D")) {
+                                x = true;
+                                var4 = true;
+                            }
+                        }
 
-            for(String line ; (line = br.readLine()) != null; )
-            {
-                if(line.startsWith("K"))
-                {
-                    String[] integerStrings = line.split(":");
-                    if (integerStrings.length>=3) 
-                    {
-                        if (integerStrings[2].startsWith("A")) 
-                        {
-                            x = 0;
-                            y = 5;
-                        } 
-                        else if (integerStrings[2].startsWith("B")) 
-                        {
-                            x = 4;
-                            y = 0;
-                        } 
-                        else if (integerStrings[2].startsWith("C")) 
-                        {
-                            x = 12;
-                            y = 0;
-                        } 
-                        else if (integerStrings[2].startsWith("D")) 
-                        {
-                            x = 13;
-                            y = 5;
-                        } 
-                        else if (integerStrings[2].startsWith("E")) 
-                        {
-                            x = 4;
-                            y = 10;
+                        if (!integerStrings[1].startsWith("Azman")) {
+                            integerStrings[1].startsWith("Gargamel");
                         }
-                    }
-                  /*
-                    if (integerStrings[1].startsWith("Azman"))
-                    {
-                        //azman.add(new Azman(x,y));
-                    }
-                    else if (integerStrings[1].startsWith("Gargamel"))
-                    {
-                        //gargamel.add(new Gargamel(x,y));
-		
-	}
-	      */
-                }
-                    else
-                    {
-                        String[] integerStrings = line.split("\\s+");
-                        for (int j = 0; j < integerStrings.length; j++)
-                        {
-                            Map[i][j] = Integer.parseInt(integerStrings[j]);
+                    } else {
+                        integerStrings = line.split("\\s+");
+
+                        for(int j = 0; j < integerStrings.length; ++j) {
+                            this.Map[i][j] = Integer.parseInt(integerStrings[j]);
                         }
-                        i++;
+
+                        ++i;
                     }
                 }
+
+                return;
             }
-            catch (FileNotFoundException e)
-            {
-                e.printStackTrace();
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-	}
-   public int[][] getMap()
-   {
-	   return Map;
-   }
-   
-   public void setMap(int[][] map) 
-   {
-	   Map=map;
-	   
-   }
-   
-   public Map(int[][] map)
-   {
-	   super();
-	   Map=map;
-	   
-   }
-   
- }
+        } catch (FileNotFoundException var8) {
+            var8.printStackTrace();
+        } catch (IOException var9) {
+            var9.printStackTrace();
+        }
+
+    }
+
+    public int[][] getMap() {
+        return this.Map;
+    }
+
+    public void setMap(int[][] map) {
+        this.Map = map;
+    }
+
+    public Map(int[][] map) {
+        this.Map = map;
+    }
+}

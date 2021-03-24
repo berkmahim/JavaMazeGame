@@ -13,21 +13,17 @@ public class Player {
 		
 		ImageIcon img = new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\src\\MazeGame\\Images\\gozluklu_sirin.png");
 		playerImage = img.getImage();
-		x = 32;
-		y = 32;
-		blokx = 1;
-		bloky = 1;
+		this.x = 6;
+        this.y = 5;
 	}
 	public Image getPlayer() {
 		return playerImage;
 	}
 	
-	public void move(int dx, int dy, int bx, int by) {
-		x += dx;
-		y += dy;
-		blokx += bx;
-		bloky += by;
-	}
+	 public void move(int dx, int dy) {
+	        this.x += dx;
+	        this.y += dy;
+	    }
 	public int getX() {
 		return x;
 	}
