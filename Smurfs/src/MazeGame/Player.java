@@ -4,50 +4,21 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-public class Player {
-	
-	private int x, y, blokx, bloky;
-	private Image playerImage;
-	
-	public Player(){
-		
-		ImageIcon img = new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\src\\MazeGame\\Images\\gozluklu_sirin.png");
-		playerImage = img.getImage();
-		this.x = 6;
-        this.y = 5;
+public class Player extends Karakter
+{
+private int skor;
+	public Player(int tileX, int tileY, int id, String ad, String tür,int skor) {
+		super(tileX, tileY, id, ad, tür);
+		this.skor=skor;
 	}
-	public Image getPlayer() {
-		return playerImage;
+	public int getSkor() {
+		return skor;
+	}
+	public void setSkor(int skor) {
+		this.skor = skor;
 	}
 	
-	 public void move(int dx, int dy) {
-	        this.x += dx;
-	        this.y += dy;
-	    }
-	public int getX() {
-		return x;
-	}
-	public void setX(int x) {
-		this.x = x;
-	}
-	public int getY() {
-		return y;
-	}
-	public void setY(int y) {
-		this.y = y;
-	}
-	public int getBlokx() {
-		return blokx;
-	}
-	public void setBlokx(int blokx) {
-		this.blokx = blokx;
-	}
-	public int getBloky() {
-		return bloky;
-	}
-	public void setBloky(int bloky) {
-		this.bloky = bloky;
-	}
+	
 	
 
 }

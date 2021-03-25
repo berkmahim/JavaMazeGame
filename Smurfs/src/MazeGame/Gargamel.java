@@ -1,15 +1,24 @@
 package MazeGame;
 
-public class Gargamel extends Dusman{
+import java.awt.Image;
 
-	public Gargamel() {
-		super();
-		// TODO Auto-generated constructor stub
+import javax.swing.ImageIcon;
+
+public class Gargamel extends Dusman {
+	private Image Gargamel;
+	public Gargamel(int tileX, int tileY, int id, String ad, String tür) {
+		super(tileX, tileY, id, ad, tür);
+		Gargamel=new ImageIcon("C:\\Users\\mehmet\\eclipse-workspace\\JavaMazeGame-master\\deneme\\pictures\\tembelsirin.jpg").getImage();
 	}
-
-	public Gargamel(int dusmanID, String dusmanAdi, String dusmanTur) {
-		super(dusmanID, dusmanAdi, dusmanTur);
-		// TODO Auto-generated constructor stub
+	@Override
+	public Image getPlayer1() {
+		
+		return Gargamel;
+	}
+	@Override
+	public void move(int dx, int dy) {
+		
+		super.move(dx,dy);
 	}
 
 }

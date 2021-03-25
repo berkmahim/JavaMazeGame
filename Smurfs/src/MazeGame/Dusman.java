@@ -1,22 +1,10 @@
 package MazeGame;
 
-public class Dusman extends Karakter{
-	
-	int dusmanID;
-	String dusmanAdi;
-	String dusmanTur;
-	
-	public Dusman() {
+public class Dusman extends Karakter {
+
+	public Dusman(int tileX, int tileY, int id, String ad, String tür) {
+		super(tileX, tileY, id, ad, tür);
 		
 	}
-	
-	public Dusman(int dusmanID, String dusmanAdi, String dusmanTur) {
-		super();
-		this.dusmanID = dusmanID;
-		this.dusmanAdi = dusmanAdi;
-		this.dusmanTur = dusmanTur;
-	}
-	
-	
 	
 }
