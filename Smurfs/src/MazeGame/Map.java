@@ -24,11 +24,16 @@ public class Map
 	private Image grass;
 	
 	private Image wall;
+	public int azmanx,azmany,gargamelx,gargamely;
+	private boolean azmanbool=false;
+	private boolean gargamelbool=false;
+	
+	
 	
 	
 	public Map() 
 	{
-	  grass=new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\Images\\grass.png").getImage();
+	  grass=new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\Images\\wall.png").getImage();
 	  wall=new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\Images\\wall.png").getImage();
 	  
   
@@ -50,7 +55,7 @@ public class Map
 	public int getMap(int x, int y) 
 	{
 		int index=Map[x][y];
-		//System.out.print(index);
+	
 		return index;
 		
 	}
@@ -65,45 +70,80 @@ public class Map
             BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\berkm\\git\\repository\\Smurfs\\src\\MazeGame\\Map.txt"));
             int i=0;
 
-            int x=0,y=0;
+            
 
             for(String line ; (line = br.readLine()) != null; )
             {
                 if(line.startsWith("K"))
                 {
                     String[] integerStrings = line.split(":");
-                    if (integerStrings.length>=3) 
-                    {
-                        if (integerStrings[2].startsWith("A")) 
-                        {
-                            x = 0;
-                            y = 5;
-                        } 
-                        else if (integerStrings[2].startsWith("B")) 
-                        {
-                            x = 4;
-                            y = 0;
-                        } 
-                        else if (integerStrings[2].startsWith("C")) 
-                        {
-                            x = 12;
-                            y = 0;
-                        } 
-                        else if (integerStrings[2].startsWith("D")) 
-                        {
-                            x = 13;
-                            y = 5;
-                        } 
-                       
-                    }
+                   
                   
                     if (integerStrings[1].startsWith("Azman"))
                     {
-                        
+                    	if (integerStrings.length>=3) 
+                        {
+                            if (integerStrings[2].startsWith("A")) 
+                            {
+                                azmanx = 3;
+                                azmany = 0;
+                                azmanbool=true;
+                                
+                            } 
+                            else if (integerStrings[2].startsWith("B")) 
+                            {
+                                azmanx = 10;
+                                azmany = 0;
+                                azmanbool=true;
+                                
+                            } 
+                            else if (integerStrings[2].startsWith("C")) 
+                            {
+                                azmanx = 0;
+                                azmany = 5;
+                                azmanbool=true;
+                               
+                            } 
+                            else if (integerStrings[2].startsWith("D")) 
+                            {
+                                azmanx = 3;
+                                azmany = 10;
+                                azmanbool=true;
+                                
+                            } 
+                           
+                        }
                     }
                     else if (integerStrings[1].startsWith("Gargamel"))
                     {
-                        
+                    	if (integerStrings.length>=3) 
+                        {
+                            if (integerStrings[2].startsWith("A")) 
+                            {
+                                gargamelx = 3;
+                                gargamely = 0;
+                                gargamelbool=true;
+                            } 
+                            else if (integerStrings[2].startsWith("B")) 
+                            {
+                                gargamelx = 10;
+                                gargamely = 0;
+                                gargamelbool=true;
+                            } 
+                            else if (integerStrings[2].startsWith("C")) 
+                            {
+                                gargamelx = 0;
+                                gargamely = 5;
+                                gargamelbool=true;
+                            } 
+                            else if (integerStrings[2].startsWith("D")) 
+                            {
+                                gargamelx = 3;
+                                gargamely = 10;
+                                gargamelbool=true;
+                            } 
+                           
+                        }
 		
 	}
 	      
@@ -145,5 +185,42 @@ public class Map
 	   Map=map;
 	   
    }
+public int getAzmanx() {
+	return azmanx;
+}
+public void setAzmanx(int azmanx) {
+	this.azmanx = azmanx;
+}
+public int getAzmany() {
+	return azmany;
+}
+public void setAzmany(int azmany) {
+	this.azmany = azmany;
+}
+public int getGargamelx() {
+	return gargamelx;
+}
+public void setGargamelx(int gargamelx) {
+	this.gargamelx = gargamelx;
+}
+public int getGargamely() {
+	return gargamely;
+}
+public void setGargamely(int gargamely) {
+	this.gargamely = gargamely;
+}
+public boolean isAzmanbool() {
+	return azmanbool;
+}
+public void setAzmanbool(boolean azmanbool) {
+	this.azmanbool = azmanbool;
+}
+public boolean isGargamelbool() {
+	return gargamelbool;
+}
+public void setGargamelbool(boolean gargamelbool) {
+	this.gargamelbool = gargamelbool;
+}
+
    
  }

@@ -9,7 +9,7 @@ public class TembelSirin extends Player {
 	private Image TembelSirin;
 	public TembelSirin(int tileX, int tileY, int id, String ad, String tür, int skor) {
 		super(tileX, tileY, id, ad, tür, skor);
-		TembelSirin=new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\Images\\tembel_sirin.png").getImage();
+		TembelSirin=new ImageIcon("C:\\Users\\berkm\\git\\repository\\Smurfs\\Images\\tembel_sirin2.png").getImage();
 	}
 	@Override
 	public Image getPlayer1() {
